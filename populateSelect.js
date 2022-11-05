@@ -1,4 +1,5 @@
-[
+function populateSelect() {
+    let airports = [
  {
    "IATA": "ABQ",
    "AIRPORT": "Albuquerque International",
@@ -3068,4 +3069,44 @@
    "LATITUDE": 32.65658333,
    "LONGITUDE": -114.6059722
  }
-]
+];
+    let dropDown = document.getElementById('a1');
+    let dropDown2 = document.getElementById('a2');
+    let dropDown3 = document.getElementById('a3');
+    let dropDown4 = document.getElementById('a4');
+    let dropDown5 = document.getElementById('a5');
+    
+    for (let i = 0; i < airports.length; i++) {
+        // POPULATE SELECT ELEMENT WITH JSON.
+        dropDown.innerHTML = dropDown.innerHTML +
+            '<option value="' + airports[i]['IATA'] + '">' + airports[i]['IATA'] + ' - ' + airports[i]['CITY'] + '</option>';
+    }
+    
+    for (let i = 0; i < airports.length; i++) {
+        // POPULATE SELECT ELEMENT WITH JSON.
+        dropDown2.innerHTML = dropDown2.innerHTML +
+            '<option value="' + airports[i]['IATA'] + '">' + airports[i]['IATA'] + ' - ' + airports[i]['CITY'] + '</option>';
+    }
+    for (let i = 0; i < airports.length; i++) {
+        // POPULATE SELECT ELEMENT WITH JSON.
+        dropDown3.innerHTML = dropDown3.innerHTML +
+            '<option value="' + airports[i]['IATA'] + '">' + airports[i]['IATA'] + ' - ' + airports[i]['CITY'] + '</option>';
+    }
+    for (let i = 0; i < airports.length; i++) {
+        // POPULATE SELECT ELEMENT WITH JSON.
+        dropDown4.innerHTML = dropDown4.innerHTML +
+            '<option value="' + airports[i]['IATA'] + '">' + airports[i]['IATA'] + ' - ' + airports[i]['CITY'] + '</option>';
+    }
+    for (let i = 0; i < airports.length; i++) {
+        // POPULATE SELECT ELEMENT WITH JSON.
+        dropDown5.innerHTML = dropDown5.innerHTML +
+            '<option value="' + airports[i]['IATA'] + '">' + airports[i]['IATA'] + ' - ' + airports[i]['CITY'] + '</option>';
+    }
+    
+    
+    
+    
+    
+    
+    
+}
