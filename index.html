@@ -7,15 +7,7 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
-        <script>
-//            function changeToAir() {
-//                 var layoverCount = 0;
-//            }
-//            
-//            function changeToAuto() {
-//               
-//            }
-        </script>
+        <script type="text/javascript" src="HomePage.js"></script>
     </head>
     <body>
         <div id="mainWrapper">
@@ -25,27 +17,24 @@
             
             <div id="hostWrapper">
                 <div id="travelTypeButtonWrapper">
-                    <button class="travelTypeButton">Auto</button>
-                    <button class="travelTypeButton">Air</button>
+                    <button class="travelTypeButton" id="autoButton"  onclick="msg()">Auto</button>
+                    <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="topDiv">
-                            
-                            <div class="airpotSelectContainer">
-                                <select class="airport">
-                                    <option value="selectAirport" selected disabled>Select Airport</option>
-                                    <option value="STL">STL - Lambert</option>
-                                    <option value="KC">KC - Lambert</option>
-                                    <option value="LAX">LAX - Los Anglos</option>
-                                </select>
-                            </div>
+                            <select class="airport">
+                                <option value="selectAirport" selected disabled>Select Airport</option>
+                                <option value="STL">STL - Lambert</option>
+                                <option value="KC">KC - Lambert</option>
+                                <option value="LAX">LAX - Los Anglos</option>
+                            </select>
 
                             <div class="layoverArrow">
-                                <img class="airArrow" src="arrow.png">
-                                <img class="addLayover" src="plus.png">
-                                <img class="subLayover" src="minus.png">
+                                <img class="airArrow" src="arrowfilepath.jpg">
+                                <img class="addLayover" src="plusfilepath">
+                                <img class="subLayover" src="negfilepath">
                             </div>
 
                             <select class="airport">
@@ -73,16 +62,16 @@
                                 <option value="motorcycle">Motorcycle</option>
                                 <option value="electric">Electric Vehicle</option>
                             </select>
+                            <button id="tripOrWeeklyButton">Trip</button>
                         </div>
                         
                         <div class="midDiv">
-                            <button id="tripOrWeeklyButton">Trip</button>
                             <label for="miles" id="milesLabel">Miles Driven:</label>
-                            <input type="text" class="milesInput">
+                            <input type="text" id="milesInput">
                         </div>
                     
                         <div class="bottomDiv">
-                            <button class="submitButton">Submit</button>
+                            <button class="submitButton" id="autoTripSubmitButton">Submit</button>
                         </div>
                     </div>
                     
