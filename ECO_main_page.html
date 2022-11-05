@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ECO2</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="HomePage.css">
+<!--
+        <script>
+            function changeToAir() {
+                 var layoverCount = 0;
+            }
+            
+            function changeToAuto() {
+                
+            }
+        </script>
+-->
+    </head>
+    <body>
+        <div id="mainWrapper">
+            <div id="totalTons">
+                <h2 id="totalTonsText">Total Tons: </h2>
+            </div>
+            
+            <div id="hostWrapper">
+                <div id="travelTypeButtonWrapper">
+                    <button class="travelTypeButton">Auto</button>
+                    <button class="travelTypeButton">Air</button>
+                </div>
+                    
+                <div id="tripSelectWrapper">
+                    <div id="airTrip">
+                        <div class="topDiv">
+                            <select class="airport">
+                                <option value="selectAirport" selected disabled>Select Airport</option>
+                                <option value="STL">STL - Lambert</option>
+                                <option value="KC">KC - Lambert</option>
+                                <option value="LAX">LAX - Los Anglos</option>
+                            </select>
+
+                            <div class="layoverArrow">
+                                <img class="airArrow" src="arrowfilepath.jpg">
+                                <img class="addLayover" src="plusfilepath">
+                                <img class="subLayover" src="negfilepath">
+                            </div>
+
+                            <select class="airport">
+                                <option value="selectAirport" selected disabled>Select Airport</option>
+                                <option value="STL">STL - Lambert</option>
+                                <option value="KC">KC - Lambert</option>
+                                <option value="LAX">LAX - Los Anglos</option>
+                            </select>
+                        </div>
+                        
+                        <h4 id="airTotalDistance">Total Distance: </h4>
+                        
+                        <input type="checkbox" id="roundTripCheckbox">
+                            <label for="roundTrip">Round Trip</label>
+                        <button class="submitButton">Submit</button>
+                    </div>
+                    
+                    <div id="autoTrip">
+                        <div class="topDiv">
+                            <select id="carType">
+                                <option value="selectAutoType" selected disabled>Select Auto Type</option>
+                                <option value="compact">Compact</option>
+                                <option value="midSize">Mid Size</option>
+                                <option value="fullSize">Full Size</option>
+                                <option value="motorcycle">Motorcycle</option>
+                                <option value="electric">Electric Vehicle</option>
+                            </select>
+                        </div>
+                        
+                        <div class="midDiv">
+                            <button id="tripOrWeeklyButton">Trip</button>
+                            <label for="miles" id="milesLabel">Miles Driven:</label>
+                            <input type="text" class="milesInput">
+                        </div>
+                    
+                        <div class="bottomDiv">
+                            <button class="submitButton">Submit</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+    </body>
+</html>

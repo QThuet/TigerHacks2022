@@ -13,12 +13,22 @@
 #autoTrip {
     border: 2px solid red;
     text-align: center;
+    margin: 15px;
 }
 
 #airTrip {
     border: 2px solid red;
     text-align: center;
-    margin-bottom: 15px;
+    margin: 15px;
+}
+
+#tripSelectWrapper {
+    margin: 10px;
+    border: 2px solid blue;
+}
+
+#hostWrapper {
+    border: 2px solid green;
 }
 
 .topDiv {
