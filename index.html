@@ -7,17 +7,15 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
-<!--
         <script>
-            function changeToAir() {
-                 var layoverCount = 0;
-            }
-            
-            function changeToAuto() {
-                
-            }
+//            function changeToAir() {
+//                 var layoverCount = 0;
+//            }
+//            
+//            function changeToAuto() {
+//               
+//            }
         </script>
--->
     </head>
     <body>
         <div id="mainWrapper">
@@ -31,20 +29,23 @@
                     <button class="travelTypeButton">Air</button>
                 </div>
                     
-                <div id="tripSeclectWrapper">
+                <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="topDiv">
-                            <select class="airport">
-                                <option value="selectAirport" selected disabled>Select Airport</option>
-                                <option value="STL">STL - Lambert</option>
-                                <option value="KC">KC - Lambert</option>
-                                <option value="LAX">LAX - Los Anglos</option>
-                            </select>
+                            
+                            <div class="airpotSelectContainer">
+                                <select class="airport">
+                                    <option value="selectAirport" selected disabled>Select Airport</option>
+                                    <option value="STL">STL - Lambert</option>
+                                    <option value="KC">KC - Lambert</option>
+                                    <option value="LAX">LAX - Los Anglos</option>
+                                </select>
+                            </div>
 
                             <div class="layoverArrow">
-                                <img class="airArrow" src="arrowfilepath.jpg">
-                                <img class="addLayover" src="plusfilepath">
-                                <img class="subLayover" src="negfilepath">
+                                <img class="airArrow" src="arrow.png">
+                                <img class="addLayover" src="plus.png">
+                                <img class="subLayover" src="minus.png">
                             </div>
 
                             <select class="airport">
