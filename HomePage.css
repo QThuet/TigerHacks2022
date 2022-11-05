@@ -1,5 +1,5 @@
 body{
-    background-color: #4E6C50;
+    background-color: #ADCF9F;
 }
 
 #totalTons {
@@ -29,17 +29,12 @@ body{
 #tripSelectWrapper {
     margin: 10px;
     border: 2px solid blue;
+    background-color: #76BA99;
 }
 
 #hostWrapper {
     border: 2px solid green;
 }
-
-/*
-#tripSelectWrapper {
-    background-color: #f0ebce
-}
-*/
 
 .topDiv {
     border: 1px solid black;
@@ -100,7 +95,7 @@ body{
 #carType {
 /*    margin-right: auto;*/
     float: left;
-    background-color: #395144;
+    background-color: #ADCF9F;
     color: gray;
     border: 2px solid #d8d8d8;
     border-radius: 5px;
@@ -111,13 +106,13 @@ body{
     margin-left: 5%;
 }
 #carType:hover {
-    background-color: #AA8B56;
+    background-color: #CED89E;
     color: white;
 }
 
 #tripOrWeeklyButton {
     float: right;
-    background-color: #395144;
+    background-color: #ADCF9F;
     color: gray;
     border: 2px solid #d8d8d8;
     border-radius: 10px;
@@ -131,12 +126,12 @@ body{
     text-decoration: none;
 }
 #tripOrWeeklyButton:hover {
-    background-color: #AA8B56;
+    background-color: #CED89E;
     color: white;
 }
 
 #milesInput {
-    background-color: #395144;
+    background-color: #ADCF9F;
     color: gray;
     border: 2px solid #d8d8d8;
     border-radius: 10px;
@@ -150,59 +145,6 @@ body{
     text-decoration: none;
 }
 /*------------------------------------------------*/
-
-
-
-/*------------------Air Travel Info---------------------------*/
-/*
-
-#airTrip {
-    border: 2px solid red;
-    margin: 15px;
-}
-
-.airTopDiv {
-    border: 1px solid black;
-    height: 100px;
-    height: 100px;
-    margin: auto;
-}
-
-.airpotSelectContainer {
-    border: 1px solid white;
-    max-width: 250px;
-    height: 100px;
-    display: flex;
-    float: left
-}
-
-.airport {
-    background-color: #395144;
-    width: 150px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.airport:hover {
-    background-color: #AA8B56;
-}
-
-.layoverArrow {
-    border: 1px solid white;
-    max-width: 250px;
-    height: 100px;
-    display: flex;
-    float: left;
-}
-*/
-/*------------------------------------------------------------*/
 
 /*------------------Air Travel Info---------------------------*/
 
