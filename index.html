@@ -7,14 +7,25 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        
         <script>
-//            function changeToAir() {
-//                 var layoverCount = 0;
-//            }
-//            
-//            function changeToAuto() {
-//               
-//            }
+            var layoverCount = 0
+
+            
+            function addLayover() {
+                if(layoverCount === 3){
+                    alert("STOOOOOOP");
+                }
+                else{
+                    layoverCount++;
+
+                    
+                }
+                
+            }
         </script>
     </head>
     <body>
@@ -32,61 +43,104 @@
                 <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="airTopDiv">
-                            
-                            <div class="airpotSelectContainer">
-                                <select class="airport">
-                                    <option value="selectAirport" selected disabled>Select Airport</option>
-                                    <option value="STL">STL - Lambert</option>
-                                    <option value="KC">KC - Lambert</option>
-                                    <option value="LAX">LAX - Los Anglos</option>
-                                </select>
-                            </div>
+                            <div id="airTripTopParent">
+                                <div class="airportSelectContainer">
+                                    <select class="airport" id="a1">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                        <option value="STL">STL - Lambert</option>
+                                        <option value="KC">KC - Lambert</option>
+                                        <option value="LAX">LAX - Los Anglos</option>
+                                    </select>
+                                </div>
 
-                            <div class="layoverArrow">
-                                <img class="airArrow" src="arrow.png">
-                                <img class="addLayover" src="plus.png">
-                                <img class="subLayover" src="minus.png">
-                            </div>
+                                <div class="layoverArrow">
+                                    <div class="arrowDiv" id="a2">
+                                        <img class="airArrow" src="arrow.png">
+                                    </div>
+                                    <div class="editDiv">
+                                        <img class="subLayover" src="minus.png">
+                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                    </div>
+                                </div>
 
-                            <div class="airportSelectContainer">
-                                <select class="airport">
-                                    <option value="selectAirport" selected disabled>Select Airport</option>
-                                    <option value="STL">STL - Lambert</option>
-                                    <option value="KC">KC - Lambert</option>
-                                    <option value="LAX">LAX - Los Anglos</option>
-                                </select>
+                                <div class="airportSelectContainer">
+                                    <select class="airport" id="a3">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                        <option value="STL">STL - Lambert</option>
+                                        <option value="KC">KC - Lambert</option>
+                                        <option value="LAX">LAX - Los Anglos</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="layoverArrow">
+                                    <div class="arrowDiv">
+                                        <img class="airArrow" src="arrow.png">
+                                    </div>
+                                    <div class="editDiv">
+                                        <img class="subLayover" src="minus.png">
+                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                    </div>
+                                </div>
+
+                                <div class="airportSelectContainer">
+                                    <select class="airport" id="a4">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                        <option value="STL">STL - Lambert</option>
+                                        <option value="KC">KC - Lambert</option>
+                                        <option value="LAX">LAX - Los Anglos</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="layoverArrow">
+                                    <div class="arrowDiv">
+                                        <img class="airArrow" src="arrow.png">
+                                    </div>
+                                    <div class="editDiv">
+                                        <img class="subLayover" src="minus.png">
+                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                    </div>
+                                </div>
+
+                                <div class="airportSelectContainer" id="a5">
+                                    <select class="airport">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                        <option value="STL">STL - Lambert</option>
+                                        <option value="KC">KC - Lambert</option>
+                                        <option value="LAX">LAX - Los Anglos</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="layoverArrow">
+                                    <div class="arrowDiv">
+                                        <img class="airArrow" src="arrow.png">
+                                    </div>
+                                    <div class="editDiv">
+                                        <img class="subLayover" src="minus.png">
+                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                    </div>
+                                </div>
+
+                                <div class="airportSelectContainer">
+                                    <select class="airport">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                        <option value="STL">STL - Lambert</option>
+                                        <option value="KC">KC - Lambert</option>
+                                        <option value="LAX">LAX - Los Anglos</option>
+                                    </select>
+                                </div>
+                                
                             </div>
                         </div>
                         
-                        <h4 id="airTotalDistance">Total Distance: </h4>
-                        
-                        <input type="checkbox" id="roundTripCheckbox">
-                            <label for="roundTrip">Round Trip</label>
-                        <button class="submitButton">Submit</button>
-                    </div>
-                    
-                    <div id="autoTrip">
-                        <div class="topDiv">
-                            <select id="carType">
-                                <option value="selectAutoType" selected disabled>Select Auto Type</option>
-                                <option value="compact">Compact</option>
-                                <option value="midSize">Mid Size</option>
-                                <option value="fullSize">Full Size</option>
-                                <option value="motorcycle">Motorcycle</option>
-                                <option value="electric">Electric Vehicle</option>
-                            </select>
-                        </div>
-                        
-                        <div class="midDiv">
-                            <button id="tripOrWeeklyButton">Trip</button>
-                            <label for="miles" id="milesLabel">Miles Driven:</label>
-                            <input type="text" class="milesInput">
-                        </div>
-                    
-                        <div class="bottomDiv">
+                        <div id="airBottomDiv">
+                            <h4 id="airTotalDistance">Total Distance: </h4>
+
+                            <input type="checkbox" id="roundTripCheckbox">
+                                <label for="roundTrip">Round Trip</label>
                             <button class="submitButton">Submit</button>
                         </div>
                     </div>
+                    
                     
                 </div>
             </div>
