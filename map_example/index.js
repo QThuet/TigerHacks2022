@@ -1,4 +1,5 @@
 var toggle = true;
+var distance = 0;
 function initMap() {
     var origin = { lat: 38.9404, lng: -92.3246 }
   
@@ -20,6 +21,7 @@ function initMap() {
       this.map = map
       this.directionsService = new google.maps.DirectionsService()
       this.directionsRenderer = new google.maps.DirectionsRenderer()
+      this.distanceMatrix = new google.maps.DistanceMatrixService()
       this.directionsRenderer.setMap(map)
       this.placesService = new google.maps.places.PlacesService(map)
       this.infowindow = new google.maps.InfoWindow()
@@ -68,6 +70,7 @@ function initMap() {
         })
         .then(response => {
           me.directionsRenderer.setDirections(response)
+          distance = response.routes[0].legs[0].distance.text;
         })
         .catch(e => window.alert("Directions request failed due to " + status))
     }
@@ -108,6 +111,6 @@ document.getElementById("abButton").addEventListener("click", function(){
     }
     });
 document.getElementById("submit").addEventListener("click", function(){
-    document.getElementById("total").innerText = "done"
+    document.getElementById("total").innerText = distance;
 });
   
