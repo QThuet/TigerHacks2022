@@ -20,11 +20,6 @@ body{
     margin: 15px;
 }
 
-#airTrip {
-    border: 2px solid red;
-    margin: 15px;
-}
-
 #tripSelectWrapper {
     margin: 10px;
     border: 2px solid blue;
@@ -57,18 +52,34 @@ body{
 /*    margin-right: auto;*/
 }
 
+/*------------------Air Travel Info---------------------------*/
+
+#airTrip {
+    border: 2px solid red;
+    margin: 15px;
+}
+
+.airTopDiv {
+    border: 1px solid black;
+    height: 100px;
+    height: 100px;
+    margin: auto;
+}
+
 .airpotSelectContainer {
     border: 1px solid white;
     max-width: 250px;
+    height: 100px;
     display: flex;
+    float: left
 }
 
 .airport {
     background-color: #395144;
     width: 150px;
     position: relative;
-    margin-left:0 auto;
-    margin-right:0 auto;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -82,5 +93,10 @@ body{
 }
 
 .layoverArrow {
-    margin-left: auto;
+    border: 1px solid white;
+    max-width: 250px;
+    height: 100px;
+    display: flex;
+    float: left;
 }
+/*------------------------------------------------------------*/
