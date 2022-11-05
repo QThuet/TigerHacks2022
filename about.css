@@ -50,6 +50,14 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 25px;
+    margin: 25px;
 }
 
+.col_box_center
+{
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
