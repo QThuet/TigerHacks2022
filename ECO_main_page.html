@@ -7,17 +7,34 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
-<!--
         <script>
-            function changeToAir() {
-                 var layoverCount = 0;
+//            function changeToAir() {
+//                 var layoverCount = 0;
+//            }
+//            
+//            function changeToAuto() {
+//                
+//            }
+            
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+              if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                  }
+                }
+              }
             }
             
-            function changeToAuto() {
-                
-            }
         </script>
--->
     </head>
     <body>
         <div id="mainWrapper">
@@ -34,6 +51,16 @@
                 <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="topDiv">
+                            <!--dropdown menu-->
+                            <div class="dropdown">
+                                <button onclick="myFunction()" class="dropbtn">Select Airport</button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <p> STL - Lambert</p>
+                                    <p>KC - Lambert</p>
+                                    <p>LAX - Los</p>
+                                </div>
+                            </div>
+                            
                             <select class="airport">
                                 <option value="selectAirport" selected disabled>Select Airport</option>
                                 <option value="STL">STL - Lambert</option>
@@ -42,7 +69,7 @@
                             </select>
 
                             <div class="layoverArrow">
-                                <img class="airArrow" src="arrowfilepath.jpg">
+                                <img class="airArrow" src="arrow.png">
                                 <img class="addLayover" src="plusfilepath">
                                 <img class="subLayover" src="negfilepath">
                             </div>
