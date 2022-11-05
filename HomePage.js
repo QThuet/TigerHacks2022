@@ -1,11 +1,8 @@
-function msg() {
-    alert("Hey there!");
-}
-
 function displayAir() {
     var autoButton = document.getElementById("autoButton");
     var airButton = document.getElementById("airButton");
     
+    //button color switch
     autoButton.style.backgroundColor = "#395144";
     autoButton.style.color = "gray";
     airButton.style.backgroundColor = "#AA8B56";
@@ -46,16 +43,13 @@ function displayAir() {
     roundTripCheckbox.style.display = "block";
     roundTripLabel.style.display = "block";
     airTripSumbitButton.style.display = "block";
-    
-    //button color switch
-//    autoButton.style.backgroundColor = "black";
-//    airButton.style.backgroundColor = "white";
 }
 
 function displayAuto() {
     var autoButton = document.getElementById("autoButton");
     var airButton = document.getElementById("airButton");
     
+    //button color switch
     autoButton.style.backgroundColor = "#AA8B56";
     autoButton.style.color = "white";
     airButton.style.backgroundColor = "#395144";
@@ -96,11 +90,26 @@ function displayAuto() {
     roundTripCheckbox.style.display = "none";
     roundTripLabel.style.display = "none";
     airTripSumbitButton.style.display = "none";
-    
-    //button color switch
-//    autoButton.style.backgroundColor = "#AA8B56";
-//    airButton.style.backgroundColor = "#395144";
-    
-//    autoButton.style.backgroundColor = "black";
-//    airButton.style.backgroundColor = "white";
+}
+
+var layoverCount = 0;
+
+function addLayover() {
+    if(layoverCount == 3) {
+        alert("Bruh");
+    }
+    else {
+        layoverCount++;
+        console.log(layoverCount);
+    }
+}
+
+function removeLayover() {
+    if(layoverCount == 0) {
+        alert("Cant go lower bub")
+    }
+    else {
+        layoverCount--;
+        console.log(layoverCount);
+    }
 }

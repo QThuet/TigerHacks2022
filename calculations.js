@@ -102,7 +102,6 @@ function calculateFlightEmissions(code1, code2)
     } else if (distance > 2000) {
         emissions = (.00000176 * distance * distance) + (.1255 * distance) + 100.5077;
     }
-
     return emissions
 }
 
