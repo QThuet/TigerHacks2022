@@ -17,39 +17,42 @@
             
             <div id="hostWrapper">
                 <div id="travelTypeButtonWrapper">
-                    <button class="travelTypeButton" id="autoButton"  onclick="msg()">Auto</button>
+                    <button class="travelTypeButton" id="autoButton"  onclick="displayAuto()">Auto</button>
                     <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="topDiv">
-                            <select class="airport">
-                                <option value="selectAirport" selected disabled>Select Airport</option>
-                                <option value="STL">STL - Lambert</option>
-                                <option value="KC">KC - Lambert</option>
-                                <option value="LAX">LAX - Los Anglos</option>
-                            </select>
-
-                            <div class="layoverArrow">
-                                <img class="airArrow" src="arrowfilepath.jpg">
-                                <img class="addLayover" src="plusfilepath">
-                                <img class="subLayover" src="negfilepath">
+                            <div class="airpotSelectContainer">
+                                <select class="airport">
+                                    <option value="selectAirport" selected disabled>Select Airport</option>
+                                    <option value="STL">STL - Lambert</option>
+                                    <option value="KC">KC - Lambert</option>
+                                    <option value="LAX">LAX - Los Anglos</option>
+                                </select>
                             </div>
 
-                            <select class="airport">
-                                <option value="selectAirport" selected disabled>Select Airport</option>
-                                <option value="STL">STL - Lambert</option>
-                                <option value="KC">KC - Lambert</option>
-                                <option value="LAX">LAX - Los Anglos</option>
-                            </select>
+                            <div class="layoverArrow">
+                                <img class="airArrow" src="arrow.png">
+                                <img class="addLayover" src="plus.png">
+                                <img class="subLayover" src="minus.png">
+                            </div>
+                            <div class="airpotSelectContainer">
+                                <select class="airport">
+                                    <option value="selectAirport" selected disabled>Select Airport</option>
+                                    <option value="STL">STL - Lambert</option>
+                                    <option value="KC">KC - Lambert</option>
+                                    <option value="LAX">LAX - Los Anglos</option>
+                                </select>
+                            </div>
                         </div>
                         
-                        <h4 id="airTotalDistance">Total Distance: </h4>
+                        <h4 id="airTotalDistanceLabel">Total Distance: </h4>
                         
                         <input type="checkbox" id="roundTripCheckbox">
-                            <label for="roundTrip">Round Trip</label>
-                        <button class="submitButton">Submit</button>
+                            <label for="roundTrip" id="roundTripLabel">Round Trip</label>
+                        <button class="submitButton" id="airTripSubmitButton">Submit</button>
                     </div>
                     
                     <div id="autoTrip">
