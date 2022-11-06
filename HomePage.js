@@ -127,12 +127,12 @@ function displayAuto() {
 //    }
 //}
 
-function removeLayover() {
-    if(layoverCount == 0) {
-        alert("Cant go lower bub")
-    }
-    else {
-        layoverCount--;
-        console.log(layoverCount);
-    }
-}
+// function removeLayover() {
+//     if(layoverCount == 0) {
+//         alert("Cant go lower bub")
+//     }
+//     else {
+//         layoverCount--;
+//         console.log(layoverCount);
+//     }
+// }

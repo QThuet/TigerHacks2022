@@ -28,11 +28,11 @@
                 var airSelect5 = document.getElementById("aSC5");
 
                 if(layoverCount == 3) {
-                    alert("Bruh");
+                    alert("Max amount of layovers reached");
                 }
                 else {
                     layoverCount++;
-                    console.log(document.getElementById("arrowDiv1").style.display);
+                    console.log(layoverCount);
                     
                     if(arrowDiv2.style.display != "inline-block"){
                         arrowDiv2.style.display = "none";
@@ -61,14 +61,17 @@
                     if(arrowDiv2.style.display == "none" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
                         arrowDiv2.style.display = "inline-block";
                         airSelect3.style.display = "inline-block";
+                        console.log("added");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
                         arrowDiv3.style.display = "inline-block";
                         airSelect4.style.display = "inline-block";
+                        console.log("added2");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "none"){
                         arrowDiv4.style.display = "inline-block";
                         airSelect5.style.display = "inline-block";
+                        console.log("added3");
                     }
                 }
             }
@@ -91,22 +94,49 @@
                 
                 else {
                     layoverCount--;
+                    console.log(layoverCount);
+                    
+                    if(arrowDiv4.style.display != "none"){
+                        arrowDiv2.style.display = "inline-block";
+                        arrowDiv3.style.display = "inline-block";
+                        arrowDiv4.style.display = "inline-block";
+                        
+                        airSelect3.style.display = "inline-block";
+                        airSelect4.style.display = "inline-block";
+                        airSelect5.style.display = "inline-block";
+                    }
+                    else if(arrowDiv3.style.display != "none"){
+                        arrowDiv2.style.display = "inline-block";
+                        arrowDiv3.style.display = "inline-block";
+                        
+                        airSelect3.style.display = "inline-block";
+                        airSelect4.style.display = "inline-block";
+                    }
+                    else if(arrowDiv2.style.display != "none"){
+                        arrowDiv2.style.display = "inline-block";
+                        
+                        airSelect3.style.display = "inline-block";
+                    }
+                    
                     
                     if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "inline-block"){
                         arrowDiv4.style.display = "none";
                         airSelect5.style.display = "none";
+                        console.log("removed1");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
                         arrowDiv2.style.display = "none";
                         airSelect3.style.display = "none";
+                        console.log("removed2");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "none"){
                         arrowDiv3.style.display = "none";
                         airSelect4.style.display = "none";
+                        console.log("removed3");
                     }
                 }
             }
-
+        </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <!-- playground-hide -->
         <script>
