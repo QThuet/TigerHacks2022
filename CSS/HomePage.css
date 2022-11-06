@@ -50,35 +50,15 @@ body{
     position: sticky;
     top: 0;
     padding: 15px;
-    padding-top: 40px;
-    height: 75px;
-    max-height: 75px;
+/*    border: 5px solid black;*/
     text-align: center;
-/*    display: inline-block;*/
     background-color: gainsboro;
     border-radius: 35px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 30px;
+    z-index: -1;
 }
 
-.totalTonsText {
-    font-family: 'Quicksand', sans-serif;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
-    font-size: 30px;
-/*    margin-top: 20px;*/
-}
-
-#tonCount {
-    font-size: 30px;
-    width: 50px;
-    display: inline-block;
-}
-
-#airTotalDistance {
-    font-family: 'Quicksand', sans-serif;
+#totalTonsText {
+    text-align: center;
 }
 
 #autoTrip {
@@ -86,6 +66,8 @@ body{
     text-align: center;
     margin: 15px;
     display: none;
+    text-align: center;
+    align-items: center;
 }
 
 #airTrip {
@@ -110,8 +92,7 @@ body{
     height: 100px;
     height: 100px;
     margin: auto;
-/*    text-align: center;*/
-        
+/*    text-align: center;*/     
 }
 
 .midDiv {
@@ -130,9 +111,7 @@ body{
 {
     margin-left: 60px;
 }
-
 .bottomDiv {
-/*    border: 1px solid black;*/
     height: 100px;
     text-align: center;
     align-items: center;
@@ -141,6 +120,13 @@ body{
     display: flex;
 }
 
+#travelTypeButtonWrapper{
+    display: flex;
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 15px;
+}
 
 #travelTypeButtonWrapper{
     display: flex;
@@ -151,19 +137,19 @@ body{
 }
 
 .travelTypeButton {
-    background-color: #395144;
-    color: gray;
+    background-color: #50C878;
+    color: whitesmoke;
 /*    border: 2px solid #d8d8d8;*/
     border-radius: 10px;
-    width:  20%;
+    width: 20%;
     height: 75px;
     padding: 16px 32px;
 /*    text-align: center;*/
     font-size: 16px;
     margin-top: .5%;
     text-decoration: none;  
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .travelTypeButton:hover {
     background-color: #AA8B56;
@@ -171,9 +157,8 @@ body{
 }
 
 .submitButton {
-    background-color: #395144;
-    color: gray;
-    border: 2px solid #d8d8d8;
+    background-color: #50C878;
+    color: whitesmoke;
     border-radius: 10px;
     width: 20%;
     height: 50px;
@@ -245,10 +230,12 @@ body{
 
 /*------------------Air Travel Info---------------------------*/
 
-#airTrip {
-/*    border: 2px solid red;*/
-    margin: 15px;
-/*    display: flex;*/
+#airButton {
+    background-color: #AA8B56
+}
+#airButton:hover {
+    background-color: #AA8B56
+    color: white
 }
 
 #airTripTopParent {
@@ -271,13 +258,8 @@ body{
     margin: auto;
 }
 
-#airTotalDistance {
-    font-family: 'Quicksand', sans-serif;
-}
-
 #airBottomDiv {
 /*    border: 3px solid blue;*/
-    font-family: 'Quicksand', sans-serif;
 }
 
 .airportSelectContainer {
@@ -398,7 +380,7 @@ body{
     top:-50px;
     width:100%;
     text-align: right;
-    z-index: 1;
+/*    z-index: -1;*/
 }
 
 #leaves i {
@@ -556,3 +538,18 @@ body {
     animation-play-state:running;
 }
 /*---------------------------------------------------------*/
+
+#roundTripLabel {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
