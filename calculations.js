@@ -3254,11 +3254,15 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
     if(rt_flag) {
         emissions = emissions * 2;
     }
+
+    // Calculations are done for grams, this acts as the final conversion
+    emissions = emissions/1000
+
+    
     console.log("push emissions");
     updateTotal(emissions);
     console.log("end calc");
-    // Calculations are done for grams, this acts as the final conversion
-    return emissions/1000;
+    return emissions;
 }
 
 // Calculates the annual emmissions of a car based off a weekly estimate
@@ -3374,11 +3378,22 @@ function carOd()
   if(trip === true)
   {
     console.log(1)
-    calculateCarEmissions(distance, vehicle, "highway", 0)
+    runColorAnimation(calculateCarEmissions(distance, vehicle, "highway", 0))
   }
   else
   {
     console.log(2)
-    calculateAnnualCarEmissions(distance, vehicle)
+    runColorAnimation(calculateAnnualCarEmissions(distance, vehicle))
   }
+}
+
+function runColorAnimation(carbonAdded) {
+    //1000kilo = 1 second
+    console.log(carbonAdded);
+    document.body.classList.add("running");
+    console.log("sleeping...");
+    setTimeout(function() {
+        console.log("awake!");
+        document.body.classList.remove("running");
+    }, carbonAdded)
 }
