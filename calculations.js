@@ -3302,7 +3302,7 @@ function updateTotal(emissions) {
             document.cookie = "total = " + (total + driving_annual_emissions).toString();
             last_total = value;
         } else {
-            document.cookie = "total = " + value.toString();
+            document.cookie = "total = " + emissions.toString();
         }
     }
 }
