@@ -91,18 +91,22 @@
                 
                 else {
                     layoverCount--;
+                    console.log(layoverCount);
                     
                     if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "inline-block"){
                         arrowDiv4.style.display = "none";
                         airSelect5.style.display = "none";
+                        console.log("removed");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
                         arrowDiv2.style.display = "none";
                         airSelect3.style.display = "none";
+                        console.log("removed");
                     }
                     else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "none"){
                         arrowDiv3.style.display = "none";
                         airSelect4.style.display = "none";
+                        console.log("removed");
                     }
                 }
             }
