@@ -90,47 +90,6 @@ function displayAuto() {
     roundTripCheckbox.style.display = "none";
     roundTripLabel.style.display = "none";
     airTripSumbitButton.style.display = "none";
+    
+    console.log(airTripDiv.style.display);
 }
-
-var layoverCount = 0;
-
-function addLayover() {
-    if(layoverCount == 3) {
-        alert("Bruh");
-    }
-    else {
-        layoverCount++;
-        console.log(layoverCount);
-    }
-}
-
-function removeLayover() {
-    if(layoverCount == 0) {
-        alert("Cant go lower bub")
-    }
-    else {
-        layoverCount--;
-        console.log(layoverCount);
-    }
-}
-
-function submitForm() {
-    var x = document.getElementById("a1Submit");
-    x.action="tripData.php";
-    x.submit();
-}
-
-//function runColorAnimation(carbonAdded) {
-//    //1000kilo = 1 second
-//    var wait = 0;
-//    console.log(carbonAdded);
-//    document.body.classList.add("running");
-//    console.log("sleeping...");
-//    console.log(wait);
-//    setTimeout(wait=1, carbonAdded);
-//    console.log(wait);
-//    if(wait == 1) {
-//        console.log("awake!");
-//        document.body.classList.remove("running");
-//    }
-//}
