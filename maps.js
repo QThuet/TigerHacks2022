@@ -113,4 +113,3 @@ document.getElementById("abButton").addEventListener("click", function(){
 document.getElementById("submit").addEventListener("click", function(){
     document.getElementById("total").innerText = distance;
 });
-  
