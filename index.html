@@ -235,7 +235,7 @@
                 <div id="travelTypeButtonWrapper">
                     <button class="travelTypeButton" id="autoButton"  onclick="displayAuto()">Auto</button>
                     <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
-                    <button class="travelTypeButton" onclick="displayAir()">Finlize CO2 emmisions</button>
+                    <button class="travelTypeButton" onclick="window.location.href = 'compare.html'">Finlize CO2 emmisions</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
@@ -329,18 +329,18 @@
                         <div class="topDiv">
                             <select id="carType">
                                 <option value="selectAutoType" selected disabled>Select Auto Type</option>
-                                <option value="compact">Compact</option>
-                                <option value="midSize">Mid Size</option>
-                                <option value="fullSize">Full Size</option>
+                                <option value="mini">Compact</option>
+                                <option value="mid">Mid Size</option>
+                                <option value="full">Full Size</option>
                                 <option value="motorcycle">Motorcycle</option>
-                                <option value="electric">Electric Vehicle</option>
+                                <option value="ev">Electric Vehicle</option>
                             </select>
                             <button id="tripOrWeeklyButton" onclick="tripSwitch()">Trip</button>
                         </div>
                         
                         <div class="midDiv">
                             <h3 id="tripHint">Insert the estimated total miles driven for a trip or use the map</h3>
-                            <label for="miles" id="milesLabel">Kilometers Driven:</label>
+                            <label for="miles" id="milesLabel">Miles Driven:</label>
                             <input type="text" id="milesInput">
                         </div>
                     

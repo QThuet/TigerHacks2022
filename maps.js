@@ -25,7 +25,7 @@ let cars = [
  ]
 
  function getCookie(name) {
-  cookieArr = document.cookie.split(";");
+  var cookieArr = document.cookie.split(";");
   
   for(var i = 0; i < cookieArr.length; i++) {
       var cookiePair = cookieArr[i].split("=");
@@ -48,6 +48,8 @@ function eraseCookie(name) {
 function updateTotal(emissions) {
   if (document) {
       value = getCookie("total")
+      console.log(document.cookie);
+      console.log(emissions)
       if (value) {
           eraseCookie("total");
           total = value + emissions;
@@ -62,7 +64,7 @@ function updateTotal(emissions) {
 
 function getCar(vehicle)
 {
-    for (i=0 ; i < cars.length ; i++)
+    for (var i=0 ; i < cars.length ; i++)
     {
         if (cars[i]["model"] == vehicle) {
             return cars[i];
@@ -75,10 +77,11 @@ function getCar(vehicle)
 function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
     distance = distance * 1.609344;
-    emissions = 0;
+    console.log(distance)
+    var emissions = 0;
 
     // Get the car and verify
-    car = getCar(vehicle_choice);
+    var car = getCar(vehicle_choice);
     if(!car) {
         return emissions;
     }
@@ -100,9 +103,14 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
     return emissions/1000;
 }
 
-function carTrip()
+function carTrip1()
 {
-  var distance = parseInt(document.getElementById("total").text)
+  console.log("here")
+  var distance = parseInt(document.getElementById("total").innerText)
+  if(distance === 0)
+  {
+    distance = 1
+  }
   var vehicle = document.getElementById("carType").value
   calculateCarEmissions(distance, vehicle, "highway", 1)
 }
@@ -221,5 +229,5 @@ document.getElementById("abButton").addEventListener("click", function(){
 
 document.getElementById("submit").addEventListener("click", function(){
     document.getElementById("total").innerText = distance;
-    carTrip()
+    carTrip1()
 });

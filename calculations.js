@@ -3213,6 +3213,7 @@ function calculateFlightEmissions(code1, code2, rt_flag = 0)
 // Output: On failure, empty
 function getCar(vehicle)
 {
+  console.log(vehicle)
     for (i=0 ; i < cars.length ; i++)
     {
         if (cars[i]["model"] == vehicle) {
@@ -3230,7 +3231,8 @@ function getCar(vehicle)
 function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
     distance = distance * 1.609344;
-    emissions = 0;
+    var emissions = 0;
+    console.log("start calc")
 
     // Get the car and verify
     car = getCar(vehicle_choice);
@@ -3238,6 +3240,7 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
         return emissions;
     }
 
+    console.log("math")
     // Calculate emissions based off of driving style
     if (drive == "highway") {
         emissions = (car.gpkm * .8 * distance) + (31.689 * distance);
@@ -3247,10 +3250,13 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
         emissions = (car.gpkm * distance) + (31.689 * distance);
     }
     
+    console.log("double if rt")
     if(rt_flag) {
         emissions = emissions * 2;
     }
+    console.log("push emissions");
     updateTotal(emissions);
+    console.log("end calc");
     // Calculations are done for grams, this acts as the final conversion
     return emissions/1000;
 }
@@ -3266,7 +3272,7 @@ function calculateAnnualCarEmissions(distance, vehicle_choice)
     emmissions = emmissions * 52;
 
     driving_annual_emissions = emissions;
-    updateTotal(0);
+    updateTotal(driving_annual_emissions);
     return emmissions;
 }
 
@@ -3298,6 +3304,8 @@ function eraseCookie(name) {
 function updateTotal(emissions) {
     if (document) {
         value = getCookie("total")
+        console.log(emissions)
+        console.log(document.cookie)
         if (value) {
             eraseCookie("total");
             total = value + emissions;
@@ -3354,25 +3362,20 @@ function tripSwitch()
     document.getElementById("mapDiv").style.display = "flex"
   }
 }
-
-function carTrip()
-{
-  var distance = parseInt(document.getElementById("total").text)
-  var vehicle = document.getElementById("carType").value
-  calculateCarEmissions(distance, vehicle, "highway", 1)
-}
-
 function carOd()
 {
-  var distance = parseInt(document.getElementById("total").text)
+  var distance = parseInt(document.getElementById("milesInput").value)
   var vehicle = document.getElementById("carType").value
+  console.log(distance)
 
   if(trip === true)
   {
+    console.log(1)
     calculateCarEmissions(distance, vehicle, "highway", 0)
   }
   else
   {
+    console.log(2)
     calculateAnnualCarEmissions(distance, vehicle)
   }
 }

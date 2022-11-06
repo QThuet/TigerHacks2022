@@ -24,7 +24,8 @@
       let total = getCookie("total");
 
       if (total != "") {
-            var emmisionsTotal = ParseInt(total)
+            var emmisionsTotal = parseInt(total)
+            console.log(emmisionsTotal)
         } else {
             alert("No data found using average");
             var emmisionsTotal = 8110
