@@ -1,14 +1,41 @@
 body{
     background-color: #ADCF9F;
 }
+.col_div
+{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+}
+.row_div
+{
+    height: auto;
+    display: flex;
+    flex-direction:  row;
+    justify-content: center;
+}
+.map_div_full
+{
+    height: 500px;
+    display: flex;
+    flex-direction:  row;
+    justify-content: center;
+}
 #mapDiv
 {
-    height: 920px;
+    height: 500px;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #map {
-    height: 90%;
+    height: 85%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
   }
 
   #infowindow-content {
