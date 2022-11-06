@@ -7,12 +7,104 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
         <script type="text/javascript" src="HomePage.js"></script>
         <script type="text/javascript" src="populateSelect.js"></script>
         <script type="text/javascript" src="calculations.js"></script>
         
         <script>
             var layoverCount = 0;
+            
+            function layoverCheck(){   
+                var tempDistance;
+                var tripDistance = 0;
+                var flag;
+                var dropdown1 = document.getElementById("a1");
+                var dropdown2 = document.getElementById("a2");
+                var dropdown3 = document.getElementById("a3");
+                var dropdown4 = document.getElementById("a4");
+                var dropdown5 = document.getElementById("a5");
+                var distance = document.getElementById("airTotalDistance");
+                var totalTons = document.getElementById("totalTonsText");
+                
+                if (document.getElementById("roundTripCheckbox").checked) {
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
+                
+                if(layoverCount == 0){
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+                else if(layoverCount == 1){
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+                else if(layoverCount == 3){
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport" || dropdown4.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+                else if(layoverCount == 4){
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport" || dropdown4.value == "selectAirport" || dropdown5.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+
+                if(layoverCount == 0){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 1){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 2){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 3){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown4.value, dropdown5.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+            }
 
             function addLayover() {
 
@@ -132,6 +224,7 @@
                     }
                 }
             }
+            
             function runColorAnimation(carbonAdded) {
                 //1000kilo = 1 second
                 document.body.classList.add("running");
@@ -186,6 +279,9 @@
                 <div id="travelTypeButtonWrapper">
                     <button class="travelTypeButton" id="autoButton"  onclick="displayAuto()">Auto</button>
                     <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
+                    <button class="travelTypeButton" onclick="resetTotal()">Reset Cookie</button>
+                    <button class="travelTypeButton" onclick="window.location.href = 'compare.html'">Finlize CO2 emmisions</button>
+                    <button class="travelTypeButton" onclick="window.location.href = 'about.html'">About Us</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
@@ -268,9 +364,9 @@
                         <div id="airBottomDiv">
                             <h4 id="airTotalDistance">Total Distance: </h4>
 
-                            <input type="checkbox" id="roundTripCheckbox">
-                                <label for="roundTrip">Round Trip</label>
-                            <button class="submitButton">Submit</button>
+                            
+                                <label for="roundTrip"><input type="checkbox" id="roundTripCheckbox" value="roundTrip">Round Trip</label>
+                            <button class="submitButton" onclick="layoverCheck()">Submit</button>
                         </div>
                     </div>
                     
@@ -279,22 +375,23 @@
                         <div class="topDiv">
                             <select id="carType">
                                 <option value="selectAutoType" selected disabled>Select Auto Type</option>
-                                <option value="compact">Compact</option>
-                                <option value="midSize">Mid Size</option>
-                                <option value="fullSize">Full Size</option>
+                                <option value="mini">Compact</option>
+                                <option value="mid">Mid Size</option>
+                                <option value="full">Full Size</option>
                                 <option value="motorcycle">Motorcycle</option>
-                                <option value="electric">Electric Vehicle</option>
+                                <option value="ev">Electric Vehicle</option>
                             </select>
-                            <button id="tripOrWeeklyButton">Trip</button>
+                            <button id="tripOrWeeklyButton" onclick="tripSwitch()">Trip</button>
                         </div>
                         
                         <div class="midDiv">
-                            <label for="miles" id="milesLabel">Kilometers Driven:</label>
-                            <input type="text" id="milesInput">
+                            <h3 id="tripHint">Insert the estimated total miles driven for a trip or use the map</h3>
+                            <label for="miles" id="milesLabel">Miles Driven:</label>
+                            <input class= "temp" type="text" id="milesInput">
                         </div>
                     
                         <div class="bottomDiv">
-                            <button class="submitButton" id="autoTripSubmitButton">Submit</button>
+                            <button class="submitButton" id="autoTripSubmitButton" onclick="carOd()">Submit</button>
                         </div>
                         </div>
                         <div id ="mapDiv">
@@ -309,10 +406,10 @@
                                     </div>
                                 </div>
                                 <div class="row_div">
-                                    <button id = "abButton">toggle</button>
+                                    <button id = "abButton">Set End Point</button>
                                     <button id ="submit">submit</button>
                                 </div>
-                                    <p id = "total">Distance: 0</p>
+                                    <p id = "total">0.0 mi</p>
                             </div>
                         </div>
                     </div>
