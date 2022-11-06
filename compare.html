@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      let total = getCookie("total");
+
+      if (total != "") {
+            var emmisionsTotal = ParseInt(total)
+        } else {
+            alert("No data found using average");
+            var emmisionsTotal = 15515
+        }
+    
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Comparisons', 'C02 levels'],
+          ['you', emmisionsTotal],
+          ['average american', 8110],
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Compare your CO2 to the average american',
+            subtitle: 'CO2 levels in Killograms',
+          }
+        };
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Comparisons', 'C02 levels'],
+          ['you', emmisionsTotal],
+          ['average american', 8110],
+          ['amazon', 71540000000],
+          ['texas power company', 101000000000],
+          ['US govenment', 4713000000000],
+          ['China', 10566000000000],
+        ]);
+
+        var options2 = {
+          chart: {
+            title: 'Compare your CO2 to the largest emitters',
+            subtitle: 'CO2 levels in Killograms',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+        var chart2 = new google.charts.Bar(document.getElementById('columnchart_bigGuys'));
+        chart2.draw(data2, google.charts.Bar.convertOptions(options2));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    <div id="columnchart_bigGuys" style="width: 800px; height: 500px;"></div>
+  </body>
+</html>
