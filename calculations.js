@@ -3095,6 +3095,7 @@ let cars = [
 // GLOBAL VARIABLES
 var total = 0;
 var last_total = 0;
+var driving_annual_emissions = 0;
 // Checks if the given latitude and longitude coordinates are valid
 // Input: two pairs of latitude and longitude in degrees
 // Output: On success, true
@@ -3252,6 +3253,7 @@ function calculateAnnualCarEmissions(distance, vehicle_choice)
     emmissions = calculateCarEmissions(distance, vehicle_choice, "city");
     emmissions = emmissions * 52;
 
+    driving_annual_emissions = emissions;
     return emmissions;
 }
 
@@ -3286,10 +3288,24 @@ function updateTotal(emissions) {
         if (value) {
             eraseCookie("total");
             total = value + emissions;
-            document.cookie = "total = " + (total).toString();
+            document.cookie = "total = " + (total + driving_annual_emissions).toString();
             last_total = value;
         } else {
             document.cookie = "total = " + value.toString();
+        }
+    }
+}
+
+// Input: calculated emissions
+function revertTotal() {
+    if (document) {
+        value = getCookie("total")
+        if (last_total != 0) {
+            eraseCookie("total");
+            temp = total;
+            total = last_total;
+            document.cookie = "total = " + (total + driving_annual_emissions).toString();
+            last_total = temp;
         }
     }
 }
@@ -3302,6 +3318,7 @@ function resetTotal() {
             eraseCookie("total");
             last_total = value;
             total = 0;
+            driving_annual_emissions = 0;
         }
     }
 }
