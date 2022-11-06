@@ -52,12 +52,14 @@ function updateTotal(emissions) {
       console.log(emissions)
       if (value) {
           eraseCookie("total");
-          total = value + emissions;
+          total = parseInt(value) + parseInt(emissions);
           document.cookie = "total = " + (total + driving_annual_emissions).toString();
           last_total = value;
       } else {
           document.cookie = "total = " + emissions.toString();
       }
+      var cookie = getCookie("total");
+      totalTons.innerHTML = "Total Tons: " + parseInt(cookie) + " kg";
   }
 }
 
