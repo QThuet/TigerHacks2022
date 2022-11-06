@@ -3092,6 +3092,7 @@ let cars = [
        "gpkm": 77.711
      }
    ]
+
 // GLOBAL VARIABLES
 var total = 0;
 var last_total = 0;
@@ -3175,7 +3176,7 @@ function getAirport(code)
 // Input: two airport codes
 // Output: on success, CO2 emissions in kg
 // Output: on failure, 0
-function calculateFlightEmissions(code1, code2)
+function calculateFlightEmissions(code1, code2, rt_flag = 0)
 {
     // Get the airports and check validity
     emissions = 0;
@@ -3198,7 +3199,11 @@ function calculateFlightEmissions(code1, code2)
         emissions = (.00000176 * distance * distance) + (.1255 * distance) + 100.5077;
     }
 
-    return emissions
+    if(rt_flag) {
+        emissions = emissions * 2;
+    }
+    updateTotal(emissions);
+    return emissions;
 }
 
 // Gets an Airports data from the JSON file based off its IATA code
@@ -3221,7 +3226,7 @@ function getCar(vehicle)
 // Input: distance driven, selected vehicle, driving style
 // Output: On success, the cars emissions in Kg
 // Output: On failure, 0
-function calculateCarEmissions(distance, vehicle_choice, drive) 
+function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
     emissions = 0;
 
@@ -3240,6 +3245,10 @@ function calculateCarEmissions(distance, vehicle_choice, drive)
         emissions = (car.gpkm * distance) + (31.689 * distance);
     }
     
+    if(rt_flag) {
+        emissions = emissions * 2;
+    }
+    updateTotal(emissions);
     // Calculations are done for grams, this acts as the final conversion
     return emissions/1000;
 }
@@ -3254,6 +3263,7 @@ function calculateAnnualCarEmissions(distance, vehicle_choice)
     emmissions = emmissions * 52;
 
     driving_annual_emissions = emissions;
+    updateTotal(0);
     return emmissions;
 }
 
