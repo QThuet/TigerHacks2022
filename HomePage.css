@@ -50,15 +50,35 @@ body{
     position: sticky;
     top: 0;
     padding: 15px;
-/*    border: 5px solid black;*/
+    padding-top: 40px;
+    height: 75px;
+    max-height: 75px;
     text-align: center;
+/*    display: inline-block;*/
     background-color: gainsboro;
     border-radius: 35px;
-    z-index: -1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
 }
 
-#totalTonsText {
-    text-align: center;
+.totalTonsText {
+    font-family: 'Quicksand', sans-serif;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    font-size: 30px;
+/*    margin-top: 20px;*/
+}
+
+#tonCount {
+    font-size: 30px;
+    width: 50px;
+    display: inline-block;
+}
+
+#airTotalDistance {
+    font-family: 'Quicksand', sans-serif;
 }
 
 #autoTrip {
@@ -66,8 +86,6 @@ body{
     text-align: center;
     margin: 15px;
     display: none;
-    text-align: center;
-    align-items: center;
 }
 
 #airTrip {
@@ -92,40 +110,18 @@ body{
     height: 100px;
     height: 100px;
     margin: auto;
-/*    text-align: center;*/     
+/*    text-align: center;*/
+        
 }
 
 .midDiv {
 /*    border: 1px solid black;*/
     height: 100px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+}
 
-}
-.temp
-{
-    margin-left: 60px;
-}
 .bottomDiv {
+/*    border: 1px solid black;*/
     height: 100px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-}
-
-#travelTypeButtonWrapper{
-    display: flex;
-    text-align: center;
-    padding-left: 150px;
-    padding-right: 150px;
-    margin-top: 15px;
 }
 
 #travelTypeButtonWrapper{
@@ -257,8 +253,13 @@ body{
     margin: auto;
 }
 
+#airTotalDistance {
+    font-family: 'Quicksand', sans-serif;
+}
+
 #airBottomDiv {
 /*    border: 3px solid blue;*/
+    font-family: 'Quicksand', sans-serif;
 }
 
 .airportSelectContainer {
@@ -379,7 +380,7 @@ body{
     top:-50px;
     width:100%;
     text-align: right;
-/*    z-index: -1;*/
+    z-index: 1;
 }
 
 #leaves i {
