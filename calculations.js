@@ -3339,6 +3339,7 @@ function resetTotal() {
             last_total = value;
             total = 0;
             driving_annual_emissions = 0;
+            updateTotal(0)
         }
     }
 }
