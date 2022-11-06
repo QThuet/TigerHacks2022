@@ -3254,11 +3254,15 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
     if(rt_flag) {
         emissions = emissions * 2;
     }
+
+    // Calculations are done for grams, this acts as the final conversion
+    emissions = emissions/1000
+
+    
     console.log("push emissions");
     updateTotal(emissions);
     console.log("end calc");
-    // Calculations are done for grams, this acts as the final conversion
-    return emissions/1000;
+    return emissions;
 }
 
 // Calculates the annual emmissions of a car based off a weekly estimate
