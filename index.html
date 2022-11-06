@@ -10,6 +10,17 @@
         <script type="text/javascript" src="HomePage.js"></script>
         <script type="text/javascript" src="populateSelect.js"></script>
         <script type="text/javascript" src="calculations.js"></script>
+        <script type="text/javascript">
+            function runColorAnimation(carbonAdded) {
+                //1000kilo = 1 second
+                document.body.classList.add("running");
+                console.log("sleeping...");
+                setTimeout(function() {
+                    console.log("awake!");
+                    document.body.classList.remove("running");
+                }, carbonAdded)
+            }
+        </script>
     </head>
     <body onload="populateSelect()">
         <div id="mainWrapper">
@@ -27,11 +38,14 @@
                     <div id="airTrip">
                         <div class="airTopDiv">
                             <div id="airTripTopParent">
-                                <div class="airportSelectContainer">
-                                    <select class="airport" id="a1">
-                                        <option value="selectAirport" selected disabled>Select Airport</option>
-                                    </select>
-                                </div>
+                                
+                                <form id="a1Submit" action="tripData.php" method="GET">
+                                    <div class="airportSelectContainer">
+                                        <select class="airport" id="a1">
+                                            <option value="selectAirport" selected disabled>Select Airport</option>
+                                        </select>
+                                    </div>
+                                </form>
 
                                 <div class="layoverArrow">
                                     <div class="arrowDiv">
@@ -105,7 +119,7 @@
 
                             <input type="checkbox" id="roundTripCheckbox">
                                 <label for="roundTrip">Round Trip</label>
-                            <button class="submitButton">Submit</button>
+                            <button class="submitButton" onclick="submitForm()">Submit</button>
                         </div>
                     </div>
                     
@@ -128,7 +142,7 @@
                         </div>
                     
                         <div class="bottomDiv">
-                            <button class="submitButton" id="autoTripSubmitButton">Submit</button>
+                            <button class="submitButton" id="autoTripSubmitButton" onclick="runColorAnimation(2000)">Submit</button>
                         </div>
                     </div>
                     

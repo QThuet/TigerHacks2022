@@ -82,6 +82,8 @@ function getAirport(code)
 // Output: on failure, 0
 function calculateFlightEmissions(code1, code2)
 {
+    console.log(code1);
+    console.log(code2);
     // Get the airports and check validity
     emissions = 0;
     airport1 = getAirport(code1);
@@ -89,6 +91,7 @@ function calculateFlightEmissions(code1, code2)
     
     if (!(airport1 && airport2))
     {
+        console.log(emissions);
         return emissions;
     }
     
@@ -102,6 +105,7 @@ function calculateFlightEmissions(code1, code2)
     } else if (distance > 2000) {
         emissions = (.00000176 * distance * distance) + (.1255 * distance) + 100.5077;
     }
+    console.log(emissions);
     return emissions
 }
 

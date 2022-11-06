@@ -113,3 +113,24 @@ function removeLayover() {
         console.log(layoverCount);
     }
 }
+
+function submitForm() {
+    var x = document.getElementById("a1Submit");
+    x.action="tripData.php";
+    x.submit();
+}
+
+//function runColorAnimation(carbonAdded) {
+//    //1000kilo = 1 second
+//    var wait = 0;
+//    console.log(carbonAdded);
+//    document.body.classList.add("running");
+//    console.log("sleeping...");
+//    console.log(wait);
+//    setTimeout(wait=1, carbonAdded);
+//    console.log(wait);
+//    if(wait == 1) {
+//        console.log("awake!");
+//        document.body.classList.remove("running");
+//    }
+//}
