@@ -90,19 +90,42 @@ function displayAuto() {
     roundTripCheckbox.style.display = "none";
     roundTripLabel.style.display = "none";
     airTripSumbitButton.style.display = "none";
+    
+    console.log(airTripDiv.style.display);
 }
 
-var layoverCount = 0;
-
-function addLayover() {
-    if(layoverCount == 3) {
-        alert("Bruh");
-    }
-    else {
-        layoverCount++;
-        console.log(layoverCount);
-    }
-}
+//var layoverCount = 0;
+//
+//function addLayover() {
+//    
+//    var arrowDiv1 = document.getElementById("arrowDiv1");
+//    var arrowDiv2 = document.getElementById("arrowDiv2");
+//    var arrowDiv3 = document.getElementById("arrowDiv3");
+//    var arrowDiv4 = document.getElementById("arrowDiv4");
+//
+//    if(layoverCount == 3) {
+//        alert("Bruh");
+//    }
+//    else {
+//        layoverCount++;
+//        console.log(arrowDiv1.style.display);
+//        
+//        if(arrowDiv1.style.display === "none"){
+//            console.log("AIDS");
+//        }
+//        
+//        if(arrowDiv1.style.display != "inline-block" && arrowDiv2.style.display == "none" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
+//            console.log("YAAAAAY");
+//            arrowDiv2.style.display = "inline-block";
+//        }
+//        if(arrowDiv1.style.display === "inline-block" && arrowDiv2.style.display === "inline-block" && arrowDiv3.style.display === "none" && arrowDiv4.style.display === "none"){
+//            arrowDiv3.style.display = "inline-block";
+//        }
+//        if(arrowDiv1.style.display === "inline-block" && arrowDiv2.style.display === "inline-block" && arrowDiv3.style.display === "inline-block" && arrowDiv4.style.display === "none"){
+//            arrowDiv3.style.display = "inline-block";
+//        }
+//    }
+//}
 
 function removeLayover() {
     if(layoverCount == 0) {
