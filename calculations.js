@@ -3092,9 +3092,12 @@ let cars = [
        "gpkm": 77.711
      }
    ]
+   
 // GLOBAL VARIABLES
 var total = 0;
 var last_total = 0;
+var driving_annual_emissions = 0;
+
 // Checks if the given latitude and longitude coordinates are valid
 // Input: two pairs of latitude and longitude in degrees
 // Output: On success, true
@@ -3174,7 +3177,7 @@ function getAirport(code)
 // Input: two airport codes
 // Output: on success, CO2 emissions in kg
 // Output: on failure, 0
-function calculateFlightEmissions(code1, code2)
+function calculateFlightEmissions(code1, code2, rt_flag = 0)
 {
     // Get the airports and check validity
     emissions = 0;
@@ -3197,7 +3200,11 @@ function calculateFlightEmissions(code1, code2)
         emissions = (.00000176 * distance * distance) + (.1255 * distance) + 100.5077;
     }
 
-    return emissions
+    if(rt_flag) {
+        emissions = emissions * 2;
+    }
+    updateTotal(emissions);
+    return [emissions, distance];
 }
 
 // Gets an Airports data from the JSON file based off its IATA code
@@ -3220,7 +3227,7 @@ function getCar(vehicle)
 // Input: distance driven, selected vehicle, driving style
 // Output: On success, the cars emissions in Kg
 // Output: On failure, 0
-function calculateCarEmissions(distance, vehicle_choice, drive) 
+function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
     emissions = 0;
 
@@ -3239,6 +3246,10 @@ function calculateCarEmissions(distance, vehicle_choice, drive)
         emissions = (car.gpkm * distance) + (31.689 * distance);
     }
     
+    if(rt_flag) {
+        emissions = emissions * 2;
+    }
+    updateTotal(emissions);
     // Calculations are done for grams, this acts as the final conversion
     return emissions/1000;
 }
@@ -3252,6 +3263,8 @@ function calculateAnnualCarEmissions(distance, vehicle_choice)
     emmissions = calculateCarEmissions(distance, vehicle_choice, "city");
     emmissions = emmissions * 52;
 
+    driving_annual_emissions = emissions;
+    updateTotal(0);
     return emmissions;
 }
 
@@ -3286,14 +3299,27 @@ function updateTotal(emissions) {
         if (value) {
             eraseCookie("total");
             total = value + emissions;
-            document.cookie = "total = " + (total).toString();
+            document.cookie = "total = " + (total + driving_annual_emissions).toString();
             last_total = value;
         } else {
-            document.cookie = "total = " + value.toString();
+            document.cookie = "total = " + emissions.toString();
         }
     }
 }
 
+// Input: calculated emissions
+function revertTotal() {
+    if (document) {
+        value = getCookie("total")
+        if (last_total != 0) {
+            eraseCookie("total");
+            temp = total;
+            total = last_total;
+            document.cookie = "total = " + (total + driving_annual_emissions).toString();
+            last_total = temp;
+        }
+    }
+}
 // Resets the emissions total to zero
 function resetTotal() {
     if (document) {
@@ -3302,6 +3328,7 @@ function resetTotal() {
             eraseCookie("total");
             last_total = value;
             total = 0;
+            driving_annual_emissions = 0;
         }
     }
 }
