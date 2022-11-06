@@ -83,7 +83,7 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
     console.log("start calc")
 
     // Get the car and verify
-    var car = getCar(vehicle_choice);
+    car = getCar(vehicle_choice);
     if(!car) {
         return emissions;
     }
