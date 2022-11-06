@@ -117,12 +117,30 @@ body{
 .midDiv {
 /*    border: 1px solid black;*/
     height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.temp
+{
+    margin-left: 60px;
 }
 
 .bottomDiv {
 /*    border: 1px solid black;*/
     height: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
 }
+
 
 #travelTypeButtonWrapper{
     display: flex;
