@@ -181,6 +181,15 @@
                 }
             }
             
+            function runColorAnimation(carbonAdded) {
+                //1000kilo = 1 second
+                document.body.classList.add("running");
+                console.log("sleeping...");
+                setTimeout(function() {
+                    console.log("awake!");
+                    document.body.classList.remove("running");
+                }, carbonAdded)
+            }
         </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <!-- playground-hide -->
