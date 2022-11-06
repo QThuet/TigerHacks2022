@@ -102,7 +102,7 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
 
 function carTrip()
 {
-  var distance = ParseInt(document.getElementById("total").text)
+  var distance = parseInt(document.getElementById("total").text)
   var vehicle = document.getElementById("carType").value
   calculateCarEmissions(distance, vehicle, "highway", 1)
 }
