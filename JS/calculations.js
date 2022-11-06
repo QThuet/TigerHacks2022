@@ -3395,3 +3395,4 @@ function runColorAnimation(carbonAdded) {
       console.log("awake!");
       document.body.classList.remove("running");
   }, carbonAdded)
+}
