@@ -238,12 +238,6 @@ body{
     color: white
 }
 
-#airTrip {
-/*    border: 2px solid red;*/
-    margin: 15px;
-/*    display: flex;*/
-}
-
 #airTripTopParent {
     margin: 0 auto;
     width: 100%;
@@ -544,3 +538,18 @@ body {
     animation-play-state:running;
 }
 /*---------------------------------------------------------*/
+
+#roundTripLabel {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
