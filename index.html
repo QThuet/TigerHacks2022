@@ -27,16 +27,13 @@
                 var dropdown4 = document.getElementById("a4");
                 var dropdown5 = document.getElementById("a5");
                 var distance = document.getElementById("airTotalDistance");
+                var totalTons = document.getElementById("totalTonsText");
                 
                 if (document.getElementById("roundTripCheckbox").checked) {
                     flag = 1;
                 } else {
                     flag = 0;
                 }
-                
-                console.log(dropdown1.value);
-                console.log(dropdown2.value);
-                console.log(layoverCount);
                 
                 if(layoverCount == 0){
                     if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport"){
@@ -283,6 +280,7 @@
                     <button class="travelTypeButton" id="autoButton"  onclick="displayAuto()">Auto</button>
                     <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
                     <button class="travelTypeButton" onclick="window.location.href = 'compare.html'">Finlize CO2 emmisions</button>
+                    <button class="travelTypeButton" onclick="window.location.href = 'about.html'">About Us</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
