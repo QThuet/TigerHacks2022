@@ -3204,7 +3204,7 @@ function calculateFlightEmissions(code1, code2, rt_flag = 0)
         emissions = emissions * 2;
     }
     updateTotal(emissions);
-    return emissions;
+    return [emissions, distance];
 }
 
 // Gets an Airports data from the JSON file based off its IATA code
