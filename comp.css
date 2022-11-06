@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(160deg, #FDB750, #FDB750, #FC2E20, #010100);
     background-size: 400% 400%;
-    animation: gradient 30s ease infinite;
+    animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
@@ -24,6 +24,8 @@ body {
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin: 5%;
+    padding: 2.5%;
 }
 
 .row_box_center
