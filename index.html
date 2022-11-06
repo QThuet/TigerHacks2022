@@ -7,6 +7,9 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
         <script type="text/javascript" src="HomePage.js"></script>
         <script type="text/javascript" src="populateSelect.js"></script>
         <script type="text/javascript" src="calculations.js"></script>
@@ -17,48 +20,92 @@
             function layoverCheck(){   
                 var tempDistance;
                 var tripDistance = 0;
+                var flag;
                 var dropdown1 = document.getElementById("a1");
                 var dropdown2 = document.getElementById("a2");
                 var dropdown3 = document.getElementById("a3");
                 var dropdown4 = document.getElementById("a4");
                 var dropdown5 = document.getElementById("a5");
-                var rt = document.getElementById("roundTripCheckbox");
                 var distance = document.getElementById("airTotalDistance");
                 
-                console.log(rt.value);
+                if (document.getElementById("roundTripCheckbox").checked) {
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
                 
+                console.log(dropdown1.value);
+                console.log(dropdown2.value);
+                console.log(layoverCount);
                 
                 if(layoverCount == 0){
-                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    distance.innerHTML = "Total Distance: " + tripDistance;
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
                 }
                 else if(layoverCount == 1){
-                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    distance.innerHTML = "Total Distance: " + tripDistance;
-                }
-                else if(layoverCount == 2){
-                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, 0);
-                    tripDistance = tripDistance + tempDistance[1];
-                    distance.innerHTML = "Total Distance: " + tripDistance;
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
                 }
                 else if(layoverCount == 3){
-                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport" || dropdown4.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+                else if(layoverCount == 4){
+                    if(dropdown1.value == "selectAirport" || dropdown2.value == "selectAirport" || dropdown3.value == "selectAirport" || dropdown4.value == "selectAirport" || dropdown5.value == "selectAirport"){
+                        alert("Please fill in ALL fields");
+                        return 0;
+                    }
+                }
+
+                if(layoverCount == 0){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
                     tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 1){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
                     tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, 0);
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
                     tripDistance = tripDistance + tempDistance[1];
-                    tempDistance = calculateFlightEmissions(dropdown4.value, dropdown5.value, 0);
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 2){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
                     tripDistance = tripDistance + tempDistance[1];
-                    distance.innerHTML = "Total Distance: " + tripDistance;
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
+                }
+                else if(layoverCount == 3){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown4.value, dropdown5.value, flag);
+                    tripDistance = tripDistance + tempDistance[1];
+                    if(flag == 1){
+                        tripDistance = tripDistance * 2;
+                    }
+                    distance.innerHTML = "Total Distance: " + Math.round(tripDistance) + " km";
                 }
             }
 
@@ -318,8 +365,8 @@
                         <div id="airBottomDiv">
                             <h4 id="airTotalDistance">Total Distance: </h4>
 
-                            <input type="checkbox" id="roundTripCheckbox">
-                                <label for="roundTrip">Round Trip</label>
+                            
+                                <label for="roundTrip"><input type="checkbox" id="roundTripCheckbox" value="roundTrip">Round Trip</label>
                             <button class="submitButton" onclick="layoverCheck()">Submit</button>
                         </div>
                     </div>
