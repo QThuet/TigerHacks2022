@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .row_box_center
@@ -53,11 +54,12 @@ body {
     margin: 25px;
 }
 
-.col_box_center
+.col_box_center_text
 {
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding: 10px;
 }
