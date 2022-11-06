@@ -3,8 +3,8 @@ function displayAir() {
     var airButton = document.getElementById("airButton");
     
     //button color switch
-    autoButton.style.backgroundColor = "#395144";
-    autoButton.style.color = "gray";
+    autoButton.style.backgroundColor = "#50C878";
+    autoButton.style.color = "whitesmoke";
     airButton.style.backgroundColor = "#AA8B56";
     airButton.style.color = "white";
     
@@ -52,8 +52,8 @@ function displayAuto() {
     //button color switch
     autoButton.style.backgroundColor = "#AA8B56";
     autoButton.style.color = "white";
-    airButton.style.backgroundColor = "#395144";
-    airButton.style.color = "gray";
+    airButton.style.backgroundColor = "#50C878";
+    airButton.style.color = "whitesmoke";
     
     //Auto Trip elements
     var autoTripDiv = document.getElementById("autoTrip");
