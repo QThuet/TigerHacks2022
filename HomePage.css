@@ -96,7 +96,6 @@ body{
 }
 
 .midDiv {
-    /*border: 1px solid black;*/
 /*    border: 1px solid black;*/
     height: 100px;
     text-align: center;
@@ -113,13 +112,20 @@ body{
     margin-left: 60px;
 }
 .bottomDiv {
-    /*border: 1px solid black;*/
     height: 100px;
     text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     display: flex;
+}
+
+#travelTypeButtonWrapper{
+    display: flex;
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 15px;
 }
 
 #travelTypeButtonWrapper{
