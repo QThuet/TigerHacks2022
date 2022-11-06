@@ -3343,11 +3343,13 @@ function tripSwitch()
   {
     trip = false
     document.getElementById("tripOrWeeklyButton").innerText = "Weekly Average"
+    document.getElementById("tripHint").innerText = "Insert the estimated total miles you drive in a week"
   }
   else
   {
     trip = true
     document.getElementById("tripOrWeeklyButton").innerText = "Trip"
+    document.getElementById("tripHint").innerText = "Insert the estimated total miles driven for a trip or use the map"
   }
 }
 
