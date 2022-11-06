@@ -3229,6 +3229,7 @@ function getCar(vehicle)
 // Output: On failure, 0
 function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
+    distance = distance * 1.609344;
     emissions = 0;
 
     // Get the car and verify
@@ -3260,6 +3261,7 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
 // Output: On failure, 0
 function calculateAnnualCarEmissions(distance, vehicle_choice) 
 {
+    distance = distance * 1.609344;
     emmissions = calculateCarEmissions(distance, vehicle_choice, "city");
     emmissions = emmissions * 52;
 
@@ -3331,4 +3333,42 @@ function resetTotal() {
             driving_annual_emissions = 0;
         }
     }
+}
+
+var trip = true
+
+function tripSwitch()
+{
+  if(trip === true)
+  {
+    trip = false
+    document.getElementById("tripOrWeeklyButton").innerText = "Weekly Average"
+  }
+  else
+  {
+    trip = true
+    document.getElementById("tripOrWeeklyButton").innerText = "Trip"
+  }
+}
+
+function carTrip()
+{
+  var distance = ParseInt(document.getElementById("total").text)
+  var vehicle = document.getElementById("carType").value
+  calculateCarEmissions(distance, vehicle, "highway", 1)
+}
+
+function carOd()
+{
+  var distance = ParseInt(document.getElementById("total").text)
+  var vehicle = document.getElementById("carType").value
+
+  if(trip === true)
+  {
+    calculateCarEmissions(distance, vehicle, "highway", 0)
+  }
+  else
+  {
+    calculateAnnualCarEmissions(distance, vehicle)
+  }
 }

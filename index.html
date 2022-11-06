@@ -286,7 +286,7 @@
                                 <option value="motorcycle">Motorcycle</option>
                                 <option value="electric">Electric Vehicle</option>
                             </select>
-                            <button id="tripOrWeeklyButton">Trip</button>
+                            <button id="tripOrWeeklyButton" onclick="tripSwitch()">Trip</button>
                         </div>
                         
                         <div class="midDiv">
@@ -295,7 +295,7 @@
                         </div>
                     
                         <div class="bottomDiv">
-                            <button class="submitButton" id="autoTripSubmitButton">Submit</button>
+                            <button class="submitButton" id="autoTripSubmitButton" onclick="carOd()">Submit</button>
                         </div>
                         </div>
                         <div id ="mapDiv">
@@ -310,10 +310,10 @@
                                     </div>
                                 </div>
                                 <div class="row_div">
-                                    <button id = "abButton">toggle</button>
+                                    <button id = "abButton">Set End Point</button>
                                     <button id ="submit">submit</button>
                                 </div>
-                                    <p id = "total">Distance: 0</p>
+                                    <p id = "total">0.0 mi</p>
                             </div>
                         </div>
                     </div>
