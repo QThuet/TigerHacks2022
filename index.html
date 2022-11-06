@@ -106,7 +106,21 @@
                     }
                 }
             }
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <!-- playground-hide -->
+        <script>
+        const process = { env: {} };
+        process.env.GOOGLE_MAPS_API_KEY =
+            "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
         </script>
+        <!-- playground-hide-end -->
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="HomePage.css">
+        <script type="text/javascript" src="HomePage.js"></script>
+        <script type="text/javascript" src="populateSelect.js"></script>
+        <script type="text/javascript" src="calculations.js"></script>
+        <script type="module" src="./maps.js"></script>
     </head>
     <body onload="populateSelect()">
         
@@ -127,7 +141,7 @@
             <i></i>
             <i></i> 
         </div>
-        
+
         <div id="mainWrapper">
             <div id="totalTons">
                 <h2 id="totalTonsText">Total Tons: </h2>
@@ -226,6 +240,7 @@
                     </div>
                     
                     <div id="autoTrip">
+                        <div id = "odDiv">
                         <div class="topDiv">
                             <select id="carType">
                                 <option value="selectAutoType" selected disabled>Select Auto Type</option>
@@ -246,11 +261,29 @@
                         <div class="bottomDiv">
                             <button class="submitButton" id="autoTripSubmitButton">Submit</button>
                         </div>
+                        </div>
+                        <div id ="mapDiv">
+                            <div id="map"></div>
+                            <div id="infowindow-content">
+                              <img id="place-icon" src="" height="16" width="16" />
+                              <span id="place-name" class="title"></span><br />
+                              Place ID <span id="place-id"></span><br />
+                              <span id="place-address"></span>
+                            </div>
+                            <div>
+                                <button id = "abButton">toggle</button>
+                                <button id ="submit">submit</button>
+                                <p id = "total">Distance: 0</p>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
             </div>
         </div>
-    
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrUnCVB_ix2M_pa1X973sw1ujFpEqBlU8&callback=initMap&libraries=places&v=weekly"
+        defer
+        ></script>
     </body>
 </html>
