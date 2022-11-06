@@ -3092,11 +3092,12 @@ let cars = [
        "gpkm": 77.711
      }
    ]
-
+   
 // GLOBAL VARIABLES
 var total = 0;
 var last_total = 0;
 var driving_annual_emissions = 0;
+
 // Checks if the given latitude and longitude coordinates are valid
 // Input: two pairs of latitude and longitude in degrees
 // Output: On success, true
@@ -3319,7 +3320,6 @@ function revertTotal() {
         }
     }
 }
-
 // Resets the emissions total to zero
 function resetTotal() {
     if (document) {
