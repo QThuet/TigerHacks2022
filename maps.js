@@ -47,7 +47,7 @@ function eraseCookie(name) {
 // Input: calculated emissions
 function updateTotal(emissions) {
   if (document) {
-      value = getCookie("total")
+      var value = getCookie("total")
       console.log(document.cookie);
       console.log(emissions)
       if (value) {
