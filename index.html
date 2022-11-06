@@ -13,6 +13,54 @@
         
         <script>
             var layoverCount = 0;
+            
+            function layoverCheck(){   
+                var tempDistance;
+                var tripDistance = 0;
+                var dropdown1 = document.getElementById("a1");
+                var dropdown2 = document.getElementById("a2");
+                var dropdown3 = document.getElementById("a3");
+                var dropdown4 = document.getElementById("a4");
+                var dropdown5 = document.getElementById("a5");
+                var rt = document.getElementById("roundTripCheckbox");
+                var distance = document.getElementById("airTotalDistance");
+                
+                console.log(rt.value);
+                
+                
+                if(layoverCount == 0){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    distance.innerHTML = "Total Distance: " + tripDistance;
+                }
+                else if(layoverCount == 1){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    distance.innerHTML = "Total Distance: " + tripDistance;
+                }
+                else if(layoverCount == 2){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    distance.innerHTML = "Total Distance: " + tripDistance;
+                }
+                else if(layoverCount == 3){
+                    tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown2.value, dropdown3.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown3.value, dropdown4.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    tempDistance = calculateFlightEmissions(dropdown4.value, dropdown5.value, 0);
+                    tripDistance = tripDistance + tempDistance[1];
+                    distance.innerHTML = "Total Distance: " + tripDistance;
+                }
+            }
 
             function addLayover() {
 
@@ -271,7 +319,7 @@
 
                             <input type="checkbox" id="roundTripCheckbox">
                                 <label for="roundTrip">Round Trip</label>
-                            <button class="submitButton">Submit</button>
+                            <button class="submitButton" onclick="layoverCheck()">Submit</button>
                         </div>
                     </div>
                     

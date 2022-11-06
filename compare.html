@@ -2,6 +2,8 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['bar']});
         function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -27,7 +29,7 @@
             var emmisionsTotal = ParseInt(total)
         } else {
             alert("No data found using average");
-            var emmisionsTotal = 8110
+            var emmisionsTotal = 15515
         }
     
 
@@ -37,6 +39,7 @@
           ['you', emmisionsTotal],
           ['world average',3628],
           ['American average', 8110],
+
         ]);
 
         var options = {
