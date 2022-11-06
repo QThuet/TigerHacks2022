@@ -50,8 +50,11 @@ body{
     position: sticky;
     top: 0;
     padding: 15px;
-    border: 5px solid black;
+/*    border: 5px solid black;*/
     text-align: center;
+    background-color: gainsboro;
+    border-radius: 35px;
+    z-index: -1;
 }
 
 #totalTonsText {
@@ -59,30 +62,31 @@ body{
 }
 
 #autoTrip {
-    border: 2px solid red;
+/*    border: 2px solid red;*/
     text-align: center;
     margin: 15px;
     display: none;
 }
 
 #airTrip {
-    border: 2px solid red;
+/*    border: 2px solid red;*/
     text-align: center;
     margin: 15px;
 }
 
 #tripSelectWrapper {
     margin: 10px;
-    border: 2px solid blue;
+/*    border: 2px solid blue;*/
     background-color: #76BA99;
+    border-radius: 35px;
 }
 
 #hostWrapper {
-    border: 2px solid green;
+/*    border: 2px solid green;*/
 }
 
 .topDiv {
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     height: 100px;
     height: 100px;
     margin: auto;
@@ -480,19 +484,10 @@ body{
 /*--------------------Color Changing Animation---------------*/
 @keyframes backgroundColorPalette {
     0% {
-        background: #ee6055
-    }
-    25% {
-        background: #60d394
-    }
-    50% {
-        background: #aaf688
-    }
-    75% {
-        background: #ffd97d
+        background: #87CEEB
     }
     100% {
-        background: #ff9b85
+        background: #DAA06D
     }
 }
 
