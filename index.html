@@ -64,6 +64,9 @@
                 if(layoverCount == 0){
                     tempDistance = calculateFlightEmissions(dropdown1.value, dropdown2.value, flag);
                     tripDistance = tripDistance + tempDistance[1];
+                    //animation stuff
+                    console.log(tempDistance[0]);
+                    runColorAnimation(tempDistance[0]); 
                     if(flag == 1){
                         tripDistance = tripDistance * 2;
                     }
@@ -228,6 +231,7 @@
             
             function runColorAnimation(carbonAdded) {
                 //1000kilo = 1 second
+                console.log(carbonAdded);
                 document.body.classList.add("running");
                 console.log("sleeping...");
                 setTimeout(function() {
