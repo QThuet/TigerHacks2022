@@ -3268,12 +3268,12 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
 function calculateAnnualCarEmissions(distance, vehicle_choice) 
 {
     distance = distance * 1.609344;
-    emmissions = calculateCarEmissions(distance, vehicle_choice, "city");
-    emmissions = emmissions * 52;
+    emissions = calculateCarEmissions(distance, vehicle_choice, "city");
+    emissions = emissions * 52;
 
     driving_annual_emissions = emissions;
     updateTotal(driving_annual_emissions);
-    return emmissions;
+    return emissions;
 }
 
 // Gets the specified contents of a cookie
