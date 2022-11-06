@@ -3378,11 +3378,21 @@ function carOd()
   if(trip === true)
   {
     console.log(1)
-    calculateCarEmissions(distance, vehicle, "highway", 0)
+    runColorAnimation(calculateCarEmissions(distance, vehicle, "highway", 0))
   }
   else
   {
     console.log(2)
-    calculateAnnualCarEmissions(distance, vehicle)
+    runColorAnimation(calculateAnnualCarEmissions(distance, vehicle))
   }
+}
+function runColorAnimation(carbonAdded) {
+  //1000kilo = 1 second
+  console.log(carbonAdded);
+  document.body.classList.add("running");
+  console.log("sleeping...");
+  setTimeout(function() {
+      console.log("awake!");
+      document.body.classList.remove("running");
+  }, carbonAdded)
 }

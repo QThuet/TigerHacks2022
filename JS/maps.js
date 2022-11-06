@@ -79,8 +79,8 @@ function getCar(vehicle)
 function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0) 
 {
     distance = distance * 1.609344;
-    console.log(distance)
     var emissions = 0;
+    console.log("start calc")
 
     // Get the car and verify
     var car = getCar(vehicle_choice);
@@ -88,6 +88,7 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
         return emissions;
     }
 
+    console.log("math")
     // Calculate emissions based off of driving style
     if (drive == "highway") {
         emissions = (car.gpkm * .8 * distance) + (31.689 * distance);
@@ -97,12 +98,18 @@ function calculateCarEmissions(distance, vehicle_choice, drive, rt_flag = 0)
         emissions = (car.gpkm * distance) + (31.689 * distance);
     }
     
+    console.log("double if rt")
     if(rt_flag) {
         emissions = emissions * 2;
     }
+
     // Calculations are done for grams, this acts as the final conversion
     emissions = emissions/1000
+
+    
+    console.log("push emissions");
     updateTotal(emissions);
+    console.log("end calc");
     return emissions;
 }
 
@@ -115,7 +122,7 @@ function carTrip1()
     distance = 1
   }
   var vehicle = document.getElementById("carType").value
-  calculateCarEmissions(distance, vehicle, "highway", 1)
+  runColorAnimation(calculateCarEmissions(distance, vehicle, "highway", 1))
 }
 
 function initMap() {
@@ -234,3 +241,13 @@ document.getElementById("submit").addEventListener("click", function(){
     document.getElementById("total").innerText = distance;
     carTrip1()
 });
+function runColorAnimation(carbonAdded) {
+  //1000kilo = 1 second
+  console.log(carbonAdded);
+  document.body.classList.add("running");
+  console.log("sleeping...");
+  setTimeout(function() {
+      console.log("awake!");
+      document.body.classList.remove("running");
+  }, carbonAdded)
+}
