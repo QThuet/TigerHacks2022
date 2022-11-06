@@ -1,0 +1,22 @@
+[
+ {
+    "model": "motorcycle",
+    "gpkm": 124.274
+  },
+  {
+    "model": "mini",
+    "gpkm": 170.877
+  },
+  {
+    "model": "mid",
+    "gpkm": 226.179
+  },
+  {
+    "model": "full",
+    "gpkm": 312.550
+  },
+  {
+    "model": "ev",
+    "gpkm": 77.711
+  }
+]

@@ -7,28 +7,127 @@
         <title>ECO2</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="HomePage.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="HomePage.js"></script>
+        <script type="text/javascript" src="populateSelect.js"></script>
+        <script type="text/javascript" src="calculations.js"></script>
         
         <script>
-            var layoverCount = 0
+            var layoverCount = 0;
 
-            
             function addLayover() {
-                if(layoverCount === 3){
-                    alert("STOOOOOOP");
-                }
-                else{
-                    layoverCount++;
 
+                var arrowDiv1 = document.getElementById("arrowDiv1");
+                var arrowDiv2 = document.getElementById("arrowDiv2");
+                var arrowDiv3 = document.getElementById("arrowDiv3");
+                var arrowDiv4 = document.getElementById("arrowDiv4");
+                
+                var airSelect1 = document.getElementById("aSC1");
+                var airSelect2 = document.getElementById("aSC2");
+                var airSelect3 = document.getElementById("aSC3");
+                var airSelect4 = document.getElementById("aSC4");
+                var airSelect5 = document.getElementById("aSC5");
+
+                if(layoverCount == 3) {
+                    alert("Bruh");
+                }
+                else {
+                    layoverCount++;
+                    console.log(document.getElementById("arrowDiv1").style.display);
                     
+                    if(arrowDiv2.style.display != "inline-block"){
+                        arrowDiv2.style.display = "none";
+                        arrowDiv3.style.display = "none";
+                        arrowDiv4.style.display = "none";
+                        
+                        airSelect3.style.display = "none";
+                        airSelect4.style.display = "none";
+                        airSelect5.style.display = "none";
+                    }
+                    
+                    else if(arrowDiv3.style.display != "inline-block"){
+                        arrowDiv3.style.display = "none";
+                        arrowDiv4.style.display = "none";
+                        
+                        airSelect4.style.display = "none";
+                        airSelect5.style.display = "none";
+                    }
+                    
+                    else if(arrowDiv4.style.display != "inline-block"){
+                        arrowDiv4.style.display = "none";
+                        
+                        airSelect5.style.display = "none";
+                    }
+ 
+                    if(arrowDiv2.style.display == "none" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
+                        arrowDiv2.style.display = "inline-block";
+                        airSelect3.style.display = "inline-block";
+                    }
+                    else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
+                        arrowDiv3.style.display = "inline-block";
+                        airSelect4.style.display = "inline-block";
+                    }
+                    else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "none"){
+                        arrowDiv4.style.display = "inline-block";
+                        airSelect5.style.display = "inline-block";
+                    }
+                }
+            }
+            
+            function removeLayover() {
+                var arrowDiv1 = document.getElementById("arrowDiv1");
+                var arrowDiv2 = document.getElementById("arrowDiv2");
+                var arrowDiv3 = document.getElementById("arrowDiv3");
+                var arrowDiv4 = document.getElementById("arrowDiv4");
+                
+                var airSelect1 = document.getElementById("aSC1");
+                var airSelect2 = document.getElementById("aSC2");
+                var airSelect3 = document.getElementById("aSC3");
+                var airSelect4 = document.getElementById("aSC4");
+                var airSelect5 = document.getElementById("aSC5");
+                
+                if(layoverCount == 0) {
+                    alert("Cannot remove any more layovers");
                 }
                 
+                else {
+                    layoverCount--;
+                    
+                    if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "inline-block"){
+                        arrowDiv4.style.display = "none";
+                        airSelect5.style.display = "none";
+                    }
+                    else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "none" && arrowDiv4.style.display == "none"){
+                        arrowDiv2.style.display = "none";
+                        airSelect3.style.display = "none";
+                    }
+                    else if(arrowDiv2.style.display == "inline-block" && arrowDiv3.style.display == "inline-block" && arrowDiv4.style.display == "none"){
+                        arrowDiv3.style.display = "none";
+                        airSelect4.style.display = "none";
+                    }
+                }
             }
         </script>
     </head>
-    <body>
+    <body onload="populateSelect()">
+        
+        <div id="leaves">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i> 
+        </div>
+        
         <div id="mainWrapper">
             <div id="totalTons">
                 <h2 id="totalTonsText">Total Tons: </h2>
@@ -36,96 +135,81 @@
             
             <div id="hostWrapper">
                 <div id="travelTypeButtonWrapper">
-                    <button class="travelTypeButton">Auto</button>
-                    <button class="travelTypeButton">Air</button>
+                    <button class="travelTypeButton" id="autoButton"  onclick="displayAuto()">Auto</button>
+                    <button class="travelTypeButton" id="airButton" onclick="displayAir()">Air</button>
                 </div>
                     
                 <div id="tripSelectWrapper">
                     <div id="airTrip">
                         <div class="airTopDiv">
                             <div id="airTripTopParent">
-                                <div class="airportSelectContainer">
+                                <div class="airportSelectContainer" id="aSC1">
                                     <select class="airport" id="a1">
                                         <option value="selectAirport" selected disabled>Select Airport</option>
-                                        <option value="STL">STL - Lambert</option>
-                                        <option value="KC">KC - Lambert</option>
-                                        <option value="LAX">LAX - Los Anglos</option>
                                     </select>
                                 </div>
 
-                                <div class="layoverArrow">
-                                    <div class="arrowDiv" id="a2">
+                                <div class="layoverArrow"id="arrowDiv1">
+                                    <div class="arrowDiv">
                                         <img class="airArrow" src="arrow.png">
                                     </div>
                                     <div class="editDiv">
-                                        <img class="subLayover" src="minus.png">
-                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                        <img class="subLayover" id="minus1" src="minus.png" onclick="removeLayover()">
+                                        <img class="addLayover" id="plus1" src="plus.png" onclick="addLayover()">
                                     </div>
                                 </div>
 
-                                <div class="airportSelectContainer">
+                                <div class="airportSelectContainer" id="aSC2">
+                                    <select class="airport" id="a2">
+                                        <option value="selectAirport" selected disabled>Select Airport</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="layoverArrow" id="arrowDiv2">
+                                    <div class="arrowDiv">
+                                        <img class="airArrow" src="arrow.png">
+                                    </div>
+                                    <div class="editDiv">
+                                        <img class="subLayover" id="minus2" src="minus.png" onclick="removeLayover()">
+                                        <img class="addLayover" id="plus2" src="plus.png" onclick="addLayover()">
+                                    </div>
+                                </div>
+
+                                <div class="airportSelectContainer" id="aSC3">
                                     <select class="airport" id="a3">
                                         <option value="selectAirport" selected disabled>Select Airport</option>
-                                        <option value="STL">STL - Lambert</option>
-                                        <option value="KC">KC - Lambert</option>
-                                        <option value="LAX">LAX - Los Anglos</option>
                                     </select>
                                 </div>
                                 
-                                <div class="layoverArrow">
+                                <div class="layoverArrow" id="arrowDiv3">
                                     <div class="arrowDiv">
                                         <img class="airArrow" src="arrow.png">
                                     </div>
                                     <div class="editDiv">
-                                        <img class="subLayover" src="minus.png">
-                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                        <img class="subLayover" id="minus3" src="minus.png" onclick="removeLayover()">
+                                        <img class="addLayover" id="plus3" src="plus.png" onclick="addLayover()">
                                     </div>
                                 </div>
 
-                                <div class="airportSelectContainer">
+                                <div class="airportSelectContainer" id="aSC4">
                                     <select class="airport" id="a4">
                                         <option value="selectAirport" selected disabled>Select Airport</option>
-                                        <option value="STL">STL - Lambert</option>
-                                        <option value="KC">KC - Lambert</option>
-                                        <option value="LAX">LAX - Los Anglos</option>
                                     </select>
                                 </div>
                                 
-                                <div class="layoverArrow">
+                                <div class="layoverArrow" id="arrowDiv4">
                                     <div class="arrowDiv">
                                         <img class="airArrow" src="arrow.png">
                                     </div>
                                     <div class="editDiv">
-                                        <img class="subLayover" src="minus.png">
-                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
+                                        <img class="subLayover" id="minus4" src="minus.png" onclick="removeLayover()">
+                                        <img class="addLayover" id="plus4" src="plus.png" onclick="addLayover()">
                                     </div>
                                 </div>
 
-                                <div class="airportSelectContainer" id="a5">
-                                    <select class="airport">
+                                <div class="airportSelectContainer" id="aSC5">
+                                    <select class="airport" id="a5">
                                         <option value="selectAirport" selected disabled>Select Airport</option>
-                                        <option value="STL">STL - Lambert</option>
-                                        <option value="KC">KC - Lambert</option>
-                                        <option value="LAX">LAX - Los Anglos</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="layoverArrow">
-                                    <div class="arrowDiv">
-                                        <img class="airArrow" src="arrow.png">
-                                    </div>
-                                    <div class="editDiv">
-                                        <img class="subLayover" src="minus.png">
-                                        <img class="addLayover" src="plus.png" onclick="addLayover()">
-                                    </div>
-                                </div>
-
-                                <div class="airportSelectContainer">
-                                    <select class="airport">
-                                        <option value="selectAirport" selected disabled>Select Airport</option>
-                                        <option value="STL">STL - Lambert</option>
-                                        <option value="KC">KC - Lambert</option>
-                                        <option value="LAX">LAX - Los Anglos</option>
                                     </select>
                                 </div>
                                 
@@ -141,6 +225,28 @@
                         </div>
                     </div>
                     
+                    <div id="autoTrip">
+                        <div class="topDiv">
+                            <select id="carType">
+                                <option value="selectAutoType" selected disabled>Select Auto Type</option>
+                                <option value="compact">Compact</option>
+                                <option value="midSize">Mid Size</option>
+                                <option value="fullSize">Full Size</option>
+                                <option value="motorcycle">Motorcycle</option>
+                                <option value="electric">Electric Vehicle</option>
+                            </select>
+                            <button id="tripOrWeeklyButton">Trip</button>
+                        </div>
+                        
+                        <div class="midDiv">
+                            <label for="miles" id="milesLabel">Kilometers Driven:</label>
+                            <input type="text" id="milesInput">
+                        </div>
+                    
+                        <div class="bottomDiv">
+                            <button class="submitButton" id="autoTripSubmitButton">Submit</button>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
